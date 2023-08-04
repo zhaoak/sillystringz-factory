@@ -19,5 +19,27 @@ namespace Factory.Controllers
         List<Engineer> model = _db.Engineers.ToList();
         return View(model);
       }
+
+      public ActionResult Create()
+      {
+        return View();
+      }
+
+      [HttpPost]
+      public ActionResult Create(Engineer engie)
+      {
+        if (ModelState.IsValid == false)
+        {
+          // if not valid, redirect to create page 
+          return View(engie);
+        }
+        else
+        {
+          // if valid
+          _db.Engineers.Add(engie);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
     }
 }

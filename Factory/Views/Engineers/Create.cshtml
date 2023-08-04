@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h3>Register new engineer</h3>
+
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;"})</p>
+<p>@Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger", @style = "font-weight: 600;"})</p>
+
+@using (Html.BeginForm())
+{
+  <p>@Html.LabelFor(model => model.Name): 
+    @Html.TextBoxFor(model => model.Name)</p>
+
+  <p>@Html.LabelFor(model => model.Notes): 
+  @Html.TextBoxFor(model => model.Notes)</p>
+
+  <input type="submit" value="Register" class="btn btn-default" />
+}
+<hr>
+<p>@Html.ActionLink("Cancel", "Index")</p>
