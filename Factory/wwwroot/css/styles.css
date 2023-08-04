@@ -3,7 +3,29 @@ main {
   margin-right: 5px;
 }
 
+body {
+  background-color: #ab77a8;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: lightgrey;
+}
+
+a:hover {
+  color: pink;
+}
+
 nav {
   text-align: center;
   margin-bottom: 5px;
+  background-color: purple;
+  color: white;
+}
+
+ul {
+  list-style: square;
 }

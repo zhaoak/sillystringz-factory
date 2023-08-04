@@ -2,10 +2,34 @@
   Layout = "_Layout";
 }
 
+@using Factory.Models;
+
 <h1>Dr. Sillystringz Manufacturing -- Maintenence Utility</h1>
 <hr>
 
-<h3>splash page list goes here</h3>
+<h4>Engineers</h4>
+@if (Model["engineers"].Length == 0)
+{
+<p><em>No engineers have been registered yet.</em></p>
+}
+<ul>
+  @foreach (Engineer engie in Model["engineers"])
+  {
+    <li>@Html.ActionLink(@engie.Name, "Details", "Engineers", new { id = @engie.EngineerId})</li>
+  }
+</ul>
+
+<h4>Machines</h4>
+@if (Model["machines"].Length == 0)
+{
+<p><em>No machines registered.</em></p>
+}
+<ul>
+  @foreach (Machine machine in Model["machines"])
+  {
+        <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId})</li>
+  }
+</ul>
 
 <hr>
 
