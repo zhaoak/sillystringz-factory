@@ -41,5 +41,28 @@ namespace Factory.Controllers
           return RedirectToAction("Index");
         }
       }
+
+      public ActionResult Edit(int id)
+      {
+      Engineer engie = _db.Engineers.FirstOrDefault(eng => eng.EngineerId == id);
+      return View(engie);
+      }
+
+      [HttpPost]
+      public ActionResult Edit(Engineer engie)
+      {
+        if (ModelState.IsValid == false)
+        {
+          // if not valid, redirect to create page 
+          return View(engie);
+        }
+        else
+        {
+          // if valid
+          _db.Engineers.Update(engie);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
     }
 }
