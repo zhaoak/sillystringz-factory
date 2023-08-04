@@ -8,6 +8,9 @@
 
 <h4>Editing this engineer's entry: @Html.DisplayFor(model => model.Name)</h4>
 
+<p>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger", @style = "font-weight: 600;"})</p>
+<p>@Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger", @style = "font-weight: 600;"})</p>
+
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId)

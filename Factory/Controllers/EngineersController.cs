@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Factory.Controllers
 {
@@ -40,6 +42,15 @@ namespace Factory.Controllers
           _db.SaveChanges();
           return RedirectToAction("Index");
         }
+      }
+
+      public ActionResult Details(int id)
+      {
+        Engineer thisEngie= _db.Engineers
+                            .Include(engie => engie.JoinEntities)
+                            .ThenInclude(join => join.Machine)
+                            .FirstOrDefault(engie => engie.EngineerId == id);
+        return View(thisEngie);
       }
 
       public ActionResult Edit(int id)
