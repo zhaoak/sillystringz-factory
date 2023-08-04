@@ -90,5 +90,31 @@ namespace Factory.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
+
+      public ActionResult AddEngineer(int id)
+      {
+        Machine thisMachine = _db.Machines.FirstOrDefault(mech => mech.MachineId == id);
+        ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+        return View(thisMachine);
+      }
+
+      [HttpPost]
+      public ActionResult AddEngineer(Machine machine, int engineerId)
+      {
+        // check if engie-machine relationship already exists
+        #nullable enable
+        EngineerMachine? joinEntity = _db.EngineerMachines.FirstOrDefault(join => (join.EngineerId == engineerId && join.MachineId == machine.MachineId));
+        #nullable disable
+
+        // if relationship doesn't exist AND at least one engineer exists
+        if (joinEntity == null && engineerId != 0)
+        {
+          // then create and add the new relationship
+          _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machine.MachineId, EngineerId = engineerId});
+          _db.SaveChanges();
+        }
+        // then redirect to the details page
+        return RedirectToAction("Details", new { id = machine.MachineId});
+      }
     }
 }

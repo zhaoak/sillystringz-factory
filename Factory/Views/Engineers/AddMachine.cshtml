@@ -12,8 +12,10 @@
 {
     @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.Label("Select machine")
+    @Html.Label("Select machine: ")
+    <br>
     @Html.DropDownList("MachineId")
+    <br>
 
     <input type="submit" value="Add license" />
 }
