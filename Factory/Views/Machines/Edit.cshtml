@@ -17,11 +17,22 @@
 
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
+  <br>
 
   @Html.LabelFor(model => model.Description)
   @Html.EditorFor(model => model.Description)
+  <br>
+
+  @Html.LabelFor(model => model.Status)
+  <select name="Status">
+    <option value="Operational">Operational</option>
+    <option value="Inoperative">Inoperative</option>
+    <option value="Under Repairs">Under Repairs</option>
+  </select>
+  <br>
 
   <input type="submit" value="Save" />
 }
+<hr>
 
 <p>@Html.ActionLink("Cancel", "Index")</p>
