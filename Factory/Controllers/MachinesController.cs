@@ -56,6 +56,11 @@ namespace Factory.Controllers
       public ActionResult Edit(int id)
       {
       Machine machine = _db.Machines.FirstOrDefault(mech => mech.MachineId == id);
+      List<string> statusStrings = new List<string>();
+      statusStrings.Add("Operational");
+      statusStrings.Add("Inoperative");
+      statusStrings.Add("Under Repair");
+      ViewBag.StatusList = new SelectList(statusStrings);
       return View(machine);
       }
 

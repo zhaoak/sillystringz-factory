@@ -10,6 +10,7 @@ public class Machine
   public string Name { get; set; }
   [Required(ErrorMessage = "A machine must have a description.")]
   public string Description { get; set; }
+  public string Status { get; set; } = "Operational";
 
   public List<EngineerMachine> JoinEntities { get; }
 }

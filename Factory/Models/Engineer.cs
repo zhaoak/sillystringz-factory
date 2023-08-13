@@ -10,6 +10,7 @@ public class Engineer
   public string Name { get; set; }
   [Required(ErrorMessage = "An engineer must have some supplementary data in notes to distinguish them from others.")]
   public string Notes { get; set; }
+  public string Status { get; set; } = "Idle";
 
   public List<EngineerMachine> JoinEntities { get; }
 }

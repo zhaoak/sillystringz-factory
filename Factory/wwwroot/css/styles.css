@@ -4,7 +4,9 @@ main {
 }
 
 body {
+  font-family: Helvetica, Verdana, sans-serif;
   background-color: #ab77a8;
+  text-align: center;
 }
 
 a:link {
@@ -21,7 +23,7 @@ a:hover {
 
 nav {
   text-align: center;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   background-color: purple;
   color: white;
 }
