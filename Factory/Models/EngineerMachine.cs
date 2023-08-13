@@ -1,4 +1,5 @@
 using Factory.Models;
+using System;
 
 namespace Factory.Models;
 
@@ -9,4 +10,6 @@ public class EngineerMachine
   public Engineer Engineer { get; set; }
   public int MachineId { get; set; }
   public Machine Machine { get; set; }
+
+  public DateTime LicensureDate { get; set; }
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
@@ -115,7 +116,7 @@ namespace Factory.Controllers
         if (joinEntity == null && engineerId != 0)
         {
           // then create and add the new relationship
-          _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machine.MachineId, EngineerId = engineerId});
+          _db.EngineerMachines.Add(new EngineerMachine() { MachineId = machine.MachineId, EngineerId = engineerId, LicensureDate = DateTime.Now } );
           _db.SaveChanges();
         }
         // then redirect to the details page
