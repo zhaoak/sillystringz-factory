@@ -18,26 +18,12 @@ to repair which machines to the database and update that information through the
 
 ## Setup/Installation Requirements
 
-### Web application setup
-
-- clone repository to location of your choice
-- ensure .NET 6 SDK is installed and correctly configured
-- ensure proper .NET dependencies are retrieved
-    - this should happen automatically with `dotnet run`
-- navigate to `Factory` directory
-- in your terminal, enter `dotnet run`
-- in your browser, open `http://localhost:5001`
-
 ### Database setup
 
 - set up a MySQL (or otherwise client protocol compatible) database instance
 - create a new database `[your_db_name]`, using a name of your choice
     - to do this, enter `CREATE DATABASE [your_db_name];` in your DB shell
     - you may also use a GUI database tool like MySQL Workbench
-- import the included schema file `allie_zhao.sql` to your new database
-    - in bash (not your database shell interface), the command for this is
-    `mysql -u [your_database_login] -p [your_db_name] < allie_zhao.sql`
-    - or import using a GUI database tool
 - in the `Factory` directory, create the file `appsettings.json`, containing the following
 
 ```json
@@ -50,6 +36,20 @@ to repair which machines to the database and update that information through the
 
 - substitute fields in square brackets with your own database information
 - also change port value if your database is not configured to use 3306
+- from the `Factory` directory, apply the included database migration
+    - the command for this is `dotnet ef database update`
+    - ensure your database instance is running first
+
+### Web application setup
+
+- clone repository to location of your choice
+- ensure .NET 6 SDK is installed and correctly configured
+- ensure proper .NET dependencies are retrieved
+    - this should happen automatically with `dotnet run`
+- navigate to `Factory` directory
+- in your terminal, enter `dotnet run`
+- in your browser, open `http://localhost:5001`
+
 
 ## Known Bugs
 
