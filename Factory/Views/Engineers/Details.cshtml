@@ -22,7 +22,7 @@ else
   <ul>
     @foreach(EngineerMachine license in Model.JoinEntities)
     {
-      <li>@license.Machine.Name</li>
+      <li>@license.Machine.Name | <em>granted on @license.LicensureDate.ToShortDateString()</li>
       @using (Html.BeginForm("DeleteJoin", "Engineers"))
       {
         @Html.Hidden("joinId", @license.EngineerMachineId)
