@@ -56,6 +56,9 @@ namespace Factory.Controllers
       public ActionResult Edit(int id)
       {
       Engineer engie = _db.Engineers.FirstOrDefault(eng => eng.EngineerId == id);
+      List<string> statusStrings = new List<string>();
+      statusStrings.Add("Idle");
+      statusStrings.Add("Working");
       return View(engie);
       }
 
