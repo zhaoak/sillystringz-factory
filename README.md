@@ -18,7 +18,7 @@ to repair which machines to the database and update that information through the
 
 ## Setup/Installation Requirements
 
-### Database setup
+### Step 1: Database setup
 
 - set up a MySQL (or otherwise client protocol compatible) database instance
 - create a new database `[your_db_name]`, using a name of your choice
@@ -40,7 +40,7 @@ to repair which machines to the database and update that information through the
     - the command for this is `dotnet ef database update`
     - ensure your database instance is running first
 
-### Web application setup
+### Step 2: Web application setup
 
 - clone repository to location of your choice
 - ensure .NET 6 SDK is installed and correctly configured
